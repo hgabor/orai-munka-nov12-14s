@@ -43,6 +43,7 @@ export class AppController {
     return this.sutik;
   }
 
+  //   /sutik/3
   @Get('sutik/:sutiid')
   sutemenyIdAlapjan(@Param('sutiid') id: string) {
     const idSzam = parseInt(id);
@@ -66,6 +67,7 @@ export class AppController {
     //this.sutik = this.sutik.filter(suti => suti.id != idSzam)
   }
 
+  //   /sutiKereses?kereses=torta&rendezes=nev
   @Get('sutiKereses')
   sutemenyKereses(@Query('kereses') kereses?: string) {
     if (!kereses) {
@@ -95,12 +97,12 @@ export class AppController {
 
     const eredetiSuti = this.sutik[eredetiSutiID];
 
-    if (typeof sutiAdatok.db != 'number') {
+    /*if (typeof sutiAdatok.db != 'number') {
       throw new BadRequestException('A db típusa number kell legyen!');
-    }
-    if (sutiAdatok.db < 0) {
+    }*/
+    /*if (sutiAdatok.db < 0) {
       throw new BadRequestException('A db nem lehet negatív!');
-    }
+    }*/
 
     const ujSuti: Sutemeny = {
       ...eredetiSuti,
